@@ -6,6 +6,10 @@
 
 ## 02 swipe-to-enlarge
 
+## 预览
+
+![02](./preview02.gif)
+
 ### 结构
 
 ```js
