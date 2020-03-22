@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap");
+//colors
+$black: #424243;
+$red: #fc3f4e;
+$white: #ffffff;
+
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #e5e5e5;
+  color: $black;
+  letter-spacing: -0.015rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+//Header
+.header {
+  height: 72px;
+  .header-inner {
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .logo {
+        position: relative;
+        width: 85px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 85px;
+        }
+      }
+      .hamburger-menu {
+        width: 24px;
+        span {
+          display: block;
+          background: $black;
+          height: 2px;
+          width: 24px;
+          margin-bottom: 5px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//BreadCrumb
+.breadcrumb {
+  height: 72px;
+  border-top: 1px solid rgba(66, 66, 67, 0.2);
+  border-bottom: 1px solid rgba(66, 66, 67, 0.2);
+  .breadcrumb-inner {
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .breadcrumb-links {
+      display: flex;
+      .breadcrumb-link {
+        font-size: 14px;
+        opacity: 0.5;
+        &:first-child:after {
+          content: ">";
+          margin: 0 16px;
+        }
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+//product overview
+.product {
+  .product-inner {
+    padding: 0 32px;
+    .product-content {
+      padding: 72px 0 24px;
+      .product-content-inner {
+        h4 {
+          font-size: 14px;
+          margin: 0 0 16px 0;
+          line-height: 1;
+        }
+        h1 {
+          font-size: 50px;
+          font-weight: 700;
+          margin: 0 0 24px 0;
+          line-height: 1;
+        }
+        p {
+          font-size: 14px;
+        }
+        .btn-row {
+          margin-top: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          button {
+            height: 56px;
+            padding: 0 24px;
+            background: $red;
+            color: $white;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+          }
+          svg {
+            margin-right: 24px;
+          }
+        }
+      }
+    }
+  }
+  .product-slide-enlarge {
+    position: relative;
+
+    .background {
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      background: #636363;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      opacity: 0;
+      overflow-y: hidden;
+    }
+    .product-drag-header {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      z-index: 22;
+      top: 0;
+      padding: 24px 32px;
+      opacity: 0;
+      .company-name {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      .close {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        justify-content: center;
+      }
+    }
+
+    .product-container {
+      position: relative;
+      height: 540px;
+
+      .product-image {
+        z-index: 8;
+        position: absolute;
+      }
+    }
+
+    .product-drag {
+      z-index: 99;
+      position: relative;
+      margin-bottom: 40px;
+      .product-drag-inner {
+        padding: 0 32px;
+        .product-drag-label {
+          display: flex;
+          justify-content: flex-end;
+          h6 {
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 12px;
+            }
+          }
+        }
+        .product-drag-progress-background {
+          width: 100%;
+          height: 1px;
+          background: rgba(66, 66, 67, 0.2);
+          position: relative;
+          .product-drag-progress {
+            width: 0%;
+            height: 1px;
+            background: $white;
+            position: absolute;
+            z-index: 2;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//specs
+.spec {
+  .spec-inner {
+    padding: 0 32px;
+    .spec-header {
+      h5 {
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 24px;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 32px;
+          background: $red;
+          bottom: 4px;
+          left: 0;
+        }
+      }
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        padding: 0;
+        list-style: none;
+        height: 60px;
+        padding: 6px 0;
+        border-top: 1px solid rgba(66, 66, 67, 0.2);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        .spec-label {
+          color: rgba(66, 66, 67, 0.6);
+          font-weight: 300;
+          height: 24px;
+        }
+        .spec-content {
+          height: 24px;
+          color: $black;
+          &.red {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
