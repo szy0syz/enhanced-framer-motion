@@ -21,8 +21,8 @@ function App() {
     <motion.div
       initial={{
         opacity: 0,
-        x: 100,
-        y: 100
+        x: 0,
+        y: 90
       }}
       animate={{
         opacity: 1,
@@ -30,7 +30,7 @@ function App() {
         y: 0
       }}
       transition={{
-        duration: 1
+        duration: 3
       }}
     >
       <Header>

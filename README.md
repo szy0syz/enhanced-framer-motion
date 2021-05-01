@@ -4,13 +4,19 @@
 
 ## 01 level up
 
+### Notes
+
+![01-01](./previews/01-01.gif)
+
+- `framer-motion` 还是对css的封装
+
 ## 02 swipe-to-enlarge
 
 ## 预览
 
 [https://hifive.yna.app/](https://hifive.yna.app/)
 
-![02](./preview02.gif)
+![02](./previews/preview02.gif)
 
 ### 结构
 
