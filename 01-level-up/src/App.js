@@ -39,11 +39,9 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
-        <h2>Super Cool</h2>
+        <motion.h2 animate={{ x: value * 2 + 'px' }}>Super Cool</motion.h2>
 
-        <button onClick={() => setToggle((prev) => !prev)}>
-          Toggle
-        </button>
+        <button onClick={() => setToggle((prev) => !prev)}>Toggle</button>
         <input
           type="range"
           min="-100"
@@ -53,7 +51,7 @@ function App() {
         />
         <Modal isToggled={isToggled} setToggle={setToggle}>
           <Card style={{ background: 'var(--purp)' }}>
-            <h3>Some card1111</h3>
+            <h3>Some card</h3>
             <img src={purp} />
           </Card>
         </Modal>
