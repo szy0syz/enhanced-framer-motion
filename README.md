@@ -34,11 +34,11 @@
 
 ### Modal
 
-结合以上特性来个Modal
+结合以上特性来个 Modal
 
 ```js
-import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Modal = ({ isToggled, setToggle, children }) => {
   return (
@@ -49,10 +49,10 @@ const Modal = ({ isToggled, setToggle, children }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 30,
-            left: '50%',
-            transform: 'translateX(-50%)',
+            left: "50%",
+            transform: "translateX(-50%)",
           }}
         >
           <motion.div initial={{ y: 50 }} animate={{ y: 0 }}>
@@ -93,7 +93,26 @@ const variants = {
 >
 ```
 
-----
+### Mobile Nav
+
+因为是 `unmount`，所以不需要包裹 `AnimatePresence`
+
+```js
+const variants = {
+  open: { x: 0 },
+  closed: { x: "-100%" },
+};
+
+<MenuNav
+  variants={variants}
+  initial="closed"
+  animate={isNavOpen ? "open" : "closed"}
+  transition={{ damping: 300 }}
+>
+
+```
+
+---
 
 ## 02 swipe-to-enlarge
 
@@ -211,7 +230,7 @@ const Product = () => {
 
 ```js
 <motion.div
-  drag={'x'}
+  drag={"x"}
   dragConstraints={{ left: -1060, right: 0 }}
   dragElastic={0.05}
   className="product-image"
@@ -356,11 +375,11 @@ const closeProductDrag = () => {
 - 预览时禁止上下滚动
 
 ```js
-let targetElement = document.querySelector('html');
+let targetElement = document.querySelector("html");
 
 useEffect(() => {
   state
-    ? targetElement.classList.add('no-scroll')
-    : targetElement.classList.remove('no-scroll');
+    ? targetElement.classList.add("no-scroll")
+    : targetElement.classList.remove("no-scroll");
 });
 ```
