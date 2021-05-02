@@ -4,11 +4,35 @@
 
 ## 01 level up
 
-### Notes
+### Motion Element
 
 ![01-01](./previews/01-01.gif)
 
-- `framer-motion` 还是对css的封装
+- `framer-motion` 还是对 css 的封装
+
+### Animate Prop
+
+```js
+ <motion.h2 animate={{ x: value * 2 + 'px', opacity: isToggle }}>
+  Super Cool
+</motion.h2>
+<button onClick={() => setIsToggle((prev) => (prev ? 0 : 1))}>
+  Toggle
+</button>
+<input
+  type="range"
+  min="-100"
+  max="100"
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+/>
+```
+
+### Animate Presence
+
+> 跟消失与出现相关的动画要用 `<AnimatePresence></AnimatePresence>` 包一下
+
+----
 
 ## 02 swipe-to-enlarge
 
@@ -226,31 +250,33 @@ const down = useTransform(x, [-100, 0], [100, 0]);
 ```
 
 - 产品拖拽预览标题
-  - 注意，这个 header是 fixed
+  - 注意，这个 header 是 fixed
   - 当拖拽了 100px 显示产品预览标题和叉叉
   - 如果有操作从 “dom tree” 上增加删除元素时的动画，要用 AnimatePresence 包一下
 
 > AnimatePresence allows components to animate out when they're removed from the React tree.
 
 ```js
-{state ? (
-  <AnimatePresence>
-    <motion.div
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ ease: ease }}
-      className="product-drag-header"
-    >
-      <div className="company-name">HiFive1</div>
-      <div className="close">
-        <Close />
-      </div>
-    </motion.div>
-  </AnimatePresence>
-) : (
-  <AnimatePresence />
-)}
+{
+  state ? (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -30 }}
+        transition={{ ease: ease }}
+        className="product-drag-header"
+      >
+        <div className="company-name">HiFive1</div>
+        <div className="close">
+          <Close />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  ) : (
+    <AnimatePresence />
+  );
+}
 ```
 
 - 点击关闭商品拖拽预览
@@ -259,21 +285,21 @@ const down = useTransform(x, [-100, 0], [100, 0]);
 const closeProductDrag = () => {
   x.stop();
   x.set(0);
-}
+};
 
 <div onClick={closeProductDrag} className="close">
   <Close />
-</div>
+</div>;
 ```
 
 - 预览时禁止上下滚动
 
 ```js
- let targetElement = document.querySelector("html");
+let targetElement = document.querySelector('html');
 
-  useEffect(() => {
-    state
+useEffect(() => {
+  state
     ? targetElement.classList.add('no-scroll')
     : targetElement.classList.remove('no-scroll');
-  });
+});
 ```

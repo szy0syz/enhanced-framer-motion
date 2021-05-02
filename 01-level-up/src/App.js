@@ -1,12 +1,13 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardGrid, Container, Header } from "./Elements";
-import "./App.css";
-import Menu from "./Menu";
-import blue from "./blue.png";
-import purp from "./purp.png";
-import black from "./black.png";
-import green from "./green.png";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Card, CardGrid, Container, Header } from './Elements';
+import Modal from './Modal';
+import './App.css';
+import Menu from './Menu';
+import blue from './blue.png';
+import purp from './purp.png';
+import black from './black.png';
+import green from './green.png';
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -17,20 +18,19 @@ import green from "./green.png";
 // Skew: skew, skewX, skewY
 
 function App() {
+  const [value, setValue] = useState(0);
+  const [isToggled, setToggle] = useState(false);
+
   return (
     <motion.div
       initial={{
         opacity: 0,
-        x: 0,
-        y: 90
       }}
       animate={{
         opacity: 1,
-        x: 0,
-        y: 0
       }}
       transition={{
-        duration: 3
+        duration: 1,
       }}
     >
       <Header>
@@ -39,20 +39,37 @@ function App() {
       </Header>
       <Container>
         <h2>Super Cool</h2>
+
+        <button onClick={() => setToggle((prev) => !prev)}>
+          Toggle
+        </button>
+        <input
+          type="range"
+          min="-100"
+          max="100"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <Modal isToggled={isToggled} setToggle={setToggle}>
+          <Card style={{ background: 'var(--purp)' }}>
+            <h3>Some card1111</h3>
+            <img src={purp} />
+          </Card>
+        </Modal>
         <CardGrid>
-          <Card style={{ background: "var(--purp)" }}>
+          <Card style={{ background: 'var(--purp)' }}>
             <h3>Some card</h3>
             <img src={purp} />
           </Card>
-          <Card style={{ background: "var(--blue)" }}>
+          <Card style={{ background: 'var(--blue)' }}>
             <h3>Some card</h3>
             <img src={blue} />
           </Card>
-          <Card style={{ background: "var(--black)" }}>
+          <Card style={{ background: 'var(--black)' }}>
             <h3>Some card</h3>
             <img src={black} />
           </Card>
-          <Card style={{ background: "var(--green)" }}>
+          <Card style={{ background: 'var(--green)' }}>
             <h3>Some card</h3>
             <img src={green} />
           </Card>
