@@ -68,6 +68,12 @@ const Modal = ({ isToggled, setToggle, children }) => {
 export default Modal;
 ```
 
+### keyframes
+
+> 帧
+
+![01-keyframes](./previews/01-keyframes.png)
+
 ----
 
 ## 02 swipe-to-enlarge

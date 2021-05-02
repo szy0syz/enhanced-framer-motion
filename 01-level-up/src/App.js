@@ -28,10 +28,11 @@ function App() {
         opacity: 0,
       }}
       animate={{
-        opacity: 1,
+        opacity: [0,  1,   0,  1],
       }}
       transition={{
-        duration: 1,
+        times:   [0, 0.2, 0.9, 1],
+        duration: 6,
       }}
     >
       <Header>
