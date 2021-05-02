@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Card, CardGrid, Container, Header } from './Elements';
 import Modal from './Modal';
 import './App.css';
@@ -28,11 +28,10 @@ function App() {
         opacity: 0,
       }}
       animate={{
-        opacity: [0,  1,   0,  1],
+        opacity: 1,
       }}
       transition={{
-        times:   [0, 0.2, 0.9, 1],
-        duration: 6,
+        duration: 1,
       }}
     >
       <Header>

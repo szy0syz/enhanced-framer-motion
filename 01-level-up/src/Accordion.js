@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+const variants = {
+  open: { opacity: 1, height: 'auto' },
+  closed: { opacity: 0, height: 0 },
+};
+
 const Accordion = () => {
   const [isToggled, setIsToggled] = useState(false);
 
@@ -12,16 +17,21 @@ const Accordion = () => {
       <AnimatePresence>
         {isToggled && (
           <motion.div
+            variants={variants}
             style={{ overflow: 'hidden' }}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial="closed"
+            animate="open"
+            exit="closed"
           >
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              vero fugit voluptatum quae alias quasi rem aliquam illum
-              repudiandae repellat magnam, nesciunt provident nulla sequi
-              numquam minima fugiat repellendus eaque!
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Doloribus alias hic dolore pariatur quibusdam? Magni repellendus
+              harum a et ducimus! Eveniet consequatur minus, illum doloremque
+              nemo et itaque molestias laborum. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Sunt distinctio, dolorem, optio
+              consequuntur labore voluptas omnis explicabo reiciendis rem
+              excepturi aperiam rerum. Odit labore vitae omnis numquam? Sunt,
+              similique temporibus?
             </p>
           </motion.div>
         )}

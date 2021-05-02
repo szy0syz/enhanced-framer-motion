@@ -74,6 +74,25 @@ export default Modal;
 
 ![01-keyframes](./previews/01-keyframes.png)
 
+### variants
+
+引入变量的概念及使用
+
+```js
+const variants = {
+  open: { opacity: 1, height: 'auto' },
+  closed: { opacity: 0, height: 0 },
+};
+
+<motion.div
+  variants={variants}
+  style={{ overflow: 'hidden' }}
+  initial="closed"
+  animate="open"
+  exit="closed"
+>
+```
+
 ----
 
 ## 02 swipe-to-enlarge
