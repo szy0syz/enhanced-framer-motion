@@ -30,7 +30,7 @@
 
 ### Animate Presence
 
-> 跟消失与出现相关的动画要用 `<AnimatePresence></AnimatePresence>` 包一下
+> 跟出入场相关的动画要用 `<AnimatePresence></AnimatePresence>` 包一下
 
 ### Modal
 
