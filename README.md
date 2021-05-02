@@ -32,6 +32,42 @@
 
 > 跟消失与出现相关的动画要用 `<AnimatePresence></AnimatePresence>` 包一下
 
+### Modal
+
+结合以上特性来个Modal
+
+```js
+import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const Modal = ({ isToggled, setToggle, children }) => {
+  return (
+    <AnimatePresence>
+      {isToggled && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          style={{
+            position: 'fixed',
+            top: 30,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        >
+          <motion.div initial={{ y: 50 }} animate={{ y: 0 }}>
+            <button onClick={() => setToggle(false)}>Close</button>
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default Modal;
+```
+
 ----
 
 ## 02 swipe-to-enlarge
