@@ -4,8 +4,26 @@ import styled from "styled-components";
 
 const variants = {
   open: { x: 0 },
-  closed: { x: "-100%" },
+  closed: {
+    x: "-100%",
+    transition: {
+      delay: 0.3,
+    },
+  },
 };
+
+const liVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.3,
+    },
+  },
+  closed: { y: -20, opacity: 0 },
+};
+
+const links = ["one", "two", "three", "four"];
 
 const Nav = ({ isNavOpen, setIsNavOpen }) => {
   return (
@@ -17,18 +35,11 @@ const Nav = ({ isNavOpen, setIsNavOpen }) => {
     >
       <button onClick={() => setIsNavOpen(false)}>Close</button>
       <ul>
-        <li>
-          <a href="#">One</a>
-        </li>
-        <li>
-          <a href="#">Two</a>
-        </li>
-        <li>
-          <a href="#">Three</a>
-        </li>
-        <li>
-          <a href="#">Four</a>
-        </li>
+        {links.map((text) => (
+          <motion.li variants={liVariants} key={text}>
+            <a href="#">{text}</a>
+          </motion.li>
+        ))}
       </ul>
     </MenuNav>
   );
@@ -51,10 +62,17 @@ const MenuNav = styled(motion.nav)`
 
   li {
     padding: 0;
-    margin: 0;
+    margin: 0 0 1rem;
     font-size: 2rem;
     a {
+      text-decoration: none;
       color: white;
+      border-bottom: 2px transparent solid;
+      transition: 0.3s ease border;
+
+      &:hover {
+        border-bottom: 2px var(--blue) solid;
+      }
     }
   }
 `;
