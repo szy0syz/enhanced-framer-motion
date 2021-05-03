@@ -189,6 +189,8 @@ const ulVariants = {
 
 ![01-drag-project](./previews/01-drag-project.png)
 
+> 为什么要做这个优化？因为dragConstraints相对设置了0，当onDragEnd时，Card还要返回原地！
+
 ![01-drag-project](./previews/01-drag-project0.gif)
 
 ![01-drag-project](./previews/01-drag-project1.gif)

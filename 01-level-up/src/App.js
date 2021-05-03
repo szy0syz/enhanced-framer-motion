@@ -88,9 +88,9 @@ function App() {
             {isCardActive && (
               <motion.div
                 transition={{
-                  // opacity: {
-                  //   duration: 0,
-                  // },
+                  opacity: {
+                    duration: 0,
+                  },
                 }}
                 exit={{ height: 0, overflow: "hidden", opacity: 0 }}
               >
