@@ -185,6 +185,14 @@ const ulVariants = {
 
 ![01-useMotionValue](./previews/01-useMotionValue.png)
 
+### drag project
+
+![01-drag-project](./previews/01-drag-project.png)
+
+![01-drag-project](./previews/01-drag-project0.gif)
+
+![01-drag-project](./previews/01-drag-project1.gif)
+
 ---
 
 ## 02 swipe-to-enlarge
