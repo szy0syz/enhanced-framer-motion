@@ -112,6 +112,27 @@ const variants = {
 
 ```
 
+### Orchestration
+
+- 让子元素按顺序播放~
+
+```js
+const ulVariants = {
+  open: {
+    scale: 1.05,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+      staggerDirection: 1,
+      when: "afterChildren" // beforeChildren, afterChildren
+    },
+  },
+  closed: {
+    scale: 1
+  },
+};
+```
+
 ---
 
 ## 02 swipe-to-enlarge
