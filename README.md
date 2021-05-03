@@ -115,6 +115,7 @@ const variants = {
 ### Orchestration
 
 - 让子元素按顺序播放~
+- 或者说是编排子元素的播放顺序~
 
 ```js
 const ulVariants = {
