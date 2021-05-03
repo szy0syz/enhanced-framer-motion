@@ -181,6 +181,10 @@ const ulVariants = {
 >
 ```
 
+### useMotionValue & useTransform
+
+![01-useMotionValue](./previews/01-useMotionValue.png)
+
 ---
 
 ## 02 swipe-to-enlarge

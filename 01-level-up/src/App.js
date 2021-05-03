@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import Modal from "./Modal";
 import "./App.css";
@@ -23,6 +23,9 @@ function App() {
   const [value, setValue] = useState(0);
   const [isToggled, setToggle] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const x = useMotionValue(0);
+  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
 
   return (
     <motion.div
@@ -81,7 +84,7 @@ function App() {
               left: 0,
               right: 0,
             }}
-            style={{ background: "var(--blue)" }}
+            style={{ x, opacity, background: "var(--blue)" }}
           >
             <h3>Some card</h3>
             <img src={blue} />
