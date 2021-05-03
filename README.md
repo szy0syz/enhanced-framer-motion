@@ -134,6 +134,25 @@ const ulVariants = {
 };
 ```
 
+### Gestures
+
+> 鼠标手势动效
+
+- 可以只有一个动效
+  - `whileHover={{scale: 1.2}}`
+- 也可以是一连串的动效，用数组包起来
+  - `whileHover={{scale: [1.02, 0.8, 1.3]}}`
+- 控制手势相关动效
+
+```js
+<Card
+  whileHover={{ scale: [1.02, 0.8, 1.3] }}
+  whileTap={{ background: "var(--red)" }}
+  onHoverEnd={() => console.log("~~onHoverEnd~~")}
+  style={{ background: "var(--black)" }}
+>
+```
+
 ---
 
 ## 02 swipe-to-enlarge

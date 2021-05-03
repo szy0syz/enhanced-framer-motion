@@ -70,7 +70,12 @@ function App() {
             <h3>Some card</h3>
             <img src={blue} />
           </Card>
-          <Card style={{ background: "var(--black)" }}>
+          <Card
+            whileHover={{ scale: [1.02, 0.8, 1.3] }}
+            whileTap={{ background: "var(--red)" }}
+            onHoverEnd={() => console.log("~~onHoverEnd~~")}
+            style={{ background: "var(--black)" }}
+          >
             <h3>Some card</h3>
             <img src={black} />
           </Card>
