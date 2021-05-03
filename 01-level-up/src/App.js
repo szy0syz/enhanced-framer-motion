@@ -62,11 +62,27 @@ function App() {
         <Accordion />
 
         <CardGrid>
-          <Card style={{ background: "var(--purp)" }}>
+          <Card
+            drag
+            dragConstraints={{
+              top: -100,
+              left: -100,
+              right: 100,
+              bottom: 100,
+            }}
+            style={{ background: "var(--purp)" }}
+          >
             <h3>Some card</h3>
             <img src={purp} />
           </Card>
-          <Card style={{ background: "var(--blue)" }}>
+          <Card
+            drag="x"
+            dragConstraints={{
+              left: 0,
+              right: 0,
+            }}
+            style={{ background: "var(--blue)" }}
+          >
             <h3>Some card</h3>
             <img src={blue} />
           </Card>

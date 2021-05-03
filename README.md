@@ -153,6 +153,34 @@ const ulVariants = {
 >
 ```
 
+### Drag
+
+> 拖拽一定要限制好范围
+
+```js
+<Card
+  drag
+  dragConstraints={{
+    top: -100,
+    left: -100,
+    right: 100,
+    bottom: 100,
+  }}
+  style={{ background: "var(--purp)" }}
+>
+  <h3>Some card</h3>
+  <img src={purp} />
+</Card>
+<Card
+  drag="x"
+  dragConstraints={{
+    left: 0,
+    right: 0,
+  }}
+  style={{ background: "var(--blue)" }}
+>
+```
+
 ---
 
 ## 02 swipe-to-enlarge
