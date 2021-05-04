@@ -195,6 +195,32 @@ const ulVariants = {
 
 ![01-drag-project](./previews/01-drag-project1.gif)
 
+### Position Transition
+
+![01-PositionTransition](./previews/01-PositionTransition.gif)
+
+```js
+<div>
+  <button onClick={() => setColorsList(shuffle(colorsList))}>
+    Shuffle
+  </button>
+  {colorsList.map((color) => (
+    <motion.div
+      key={color}
+      positionTransition={{
+        damping: 100,
+        stiffness: 1,
+      }}
+      style={{
+        background: color,
+        height: 100,
+        width: 100,
+      }}
+    />
+  ))}
+</div>
+```
+
 ---
 
 ## 02 swipe-to-enlarge
