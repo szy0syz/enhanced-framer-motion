@@ -16,6 +16,7 @@ import green from "./green.png";
 import Accordion from "./Accordion";
 import Nav from "./Nav";
 import Squares from "./Squares";
+import Slideshow from "./Slideshow";
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -52,6 +53,7 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
+        <Slideshow />
         <Squares />
         <motion.h2 animate={{ x: value * 2 + "px" }}>Super Cool</motion.h2>
 
