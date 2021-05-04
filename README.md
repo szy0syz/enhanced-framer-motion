@@ -125,11 +125,11 @@ const ulVariants = {
       staggerChildren: 0.3,
       delayChildren: 0.2,
       staggerDirection: 1,
-      when: "afterChildren" // beforeChildren, afterChildren
+      when: "afterChildren", // beforeChildren, afterChildren
     },
   },
   closed: {
-    scale: 1
+    scale: 1,
   },
 };
 ```
@@ -189,7 +189,7 @@ const ulVariants = {
 
 ![01-drag-project](./previews/01-drag-project.png)
 
-> 为什么要做这个优化？因为dragConstraints相对设置了0，当onDragEnd时，Card还要返回原地！
+> 为什么要做这个优化？因为 dragConstraints 相对设置了 0，当 onDragEnd 时，Card 还要返回原地！
 
 ![01-drag-project](./previews/01-drag-project0.gif)
 
@@ -201,9 +201,7 @@ const ulVariants = {
 
 ```js
 <div>
-  <button onClick={() => setColorsList(shuffle(colorsList))}>
-    Shuffle
-  </button>
+  <button onClick={() => setColorsList(shuffle(colorsList))}>Shuffle</button>
   {colorsList.map((color) => (
     <motion.div
       key={color}
@@ -219,6 +217,27 @@ const ulVariants = {
     />
   ))}
 </div>
+```
+
+### slideshow
+
+自定义变量，控制动效。
+
+```js
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -1000 : 1000,
+    opacity: 0,
+  }),
+};
 ```
 
 ---

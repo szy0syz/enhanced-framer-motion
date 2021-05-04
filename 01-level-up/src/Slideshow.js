@@ -11,18 +11,18 @@ const COLORS = [
 ];
 
 const variants = {
-  enter: {
-    x: 1000,
+  enter: (direction) => ({
+    x: direction > 0 ? 1000 : -1000,
     opacity: 0,
-  },
+  }),
   center: {
     x: 0,
     opacity: 1,
   },
-  exit: {
-    x: -1000,
+  exit: (direction) => ({
+    x: direction > 0 ? -1000 : 1000,
     opacity: 0,
-  },
+  }),
 };
 
 function Slideshow() {
@@ -36,9 +36,10 @@ function Slideshow() {
 
   return (
     <div style={{ position: "relative", height: 400 }}>
-      <AnimatePresence>
+      <AnimatePresence custom={direction}>
         <motion.div
           drag="x"
+          custom={direction}
           variants={variants}
           initial="enter"
           animate="center"
@@ -62,8 +63,12 @@ function Slideshow() {
             top: 0,
             left: 0,
           }}
-        ></motion.div>
+        />
       </AnimatePresence>
+      <div style={{ zIndex: 10, position: "absolute" }}>
+        <button onClick={() => paginate(-1)}>{"<"}</button>
+        <button onClick={() => paginate(1)}>{">"}</button>
+      </div>
     </div>
   );
 }
